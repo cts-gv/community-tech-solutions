@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Monitor, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Monitor, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { siteConfig, navLinks } from '../data/siteContent';
 
 export default function Footer() {
@@ -95,24 +95,12 @@ export default function Footer() {
             <h3 className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
               Contact Us
             </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-accent mt-0.5 shrink-0" aria-hidden="true" />
-                <a href={`tel:${siteConfig.phone}`} className="text-white/60 hover:text-accent transition-colors text-sm">
-                  {siteConfig.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-accent mt-0.5 shrink-0" aria-hidden="true" />
-                <a href={`mailto:${siteConfig.email}`} className="text-white/60 hover:text-accent transition-colors text-sm">
-                  {siteConfig.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" aria-hidden="true" />
-                <span className="text-white/60 text-sm">{siteConfig.address}</span>
-              </li>
-            </ul>
+            <Link
+              to="/contact"
+              className="text-white/60 hover:text-accent transition-colors text-sm"
+            >
+              Get in Touch
+            </Link>
           </div>
         </div>
 

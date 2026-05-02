@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { contactContent, siteConfig } from '../data/siteContent';
 import PageHero from '../components/PageHero';
 import { supabase } from '../lib/supabase';
@@ -9,6 +9,7 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 export default function ContactPage() {
   const { hero, formLabels, serviceOptions } = contactContent;
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [showContact, setShowContact] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,34 +68,52 @@ export default function ContactPage() {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-accent" aria-hidden="true" />
+                <button
+                  onClick={() => setShowContact(!showContact)}
+                  className="flex items-center gap-3 px-6 py-3 bg-accent/10 hover:bg-accent/20 text-accent font-semibold rounded-xl transition-colors"
+                  aria-expanded={showContact}
+                >
+                  {showContact ? (
+                    <EyeOff className="w-5 h-5" aria-hidden="true" />
+                  ) : (
+                    <Eye className="w-5 h-5" aria-hidden="true" />
+                  )}
+                  {showContact ? 'Hide Phone Number' : 'Show Phone Number'}
+                </button>
+
+                {showContact && (
+                  <div className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                        <Phone className="w-5 h-5 text-accent" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary">Phone</p>
+                        <a
+                          href={`tel:${siteConfig.phone}`}
+                          className="text-gray-600 hover:text-accent transition-colors"
+                        >
+                          {siteConfig.phone}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                        <Mail className="w-5 h-5 text-accent" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-primary">Email</p>
+                        <a
+                          href={`mailto:${siteConfig.email}`}
+                          className="text-gray-600 hover:text-accent transition-colors"
+                        >
+                          {siteConfig.email}
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-primary">Phone</p>
-                    <a
-                      href={`tel:${siteConfig.phone}`}
-                      className="text-gray-600 hover:text-accent transition-colors"
-                    >
-                      {siteConfig.phone}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-accent" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary">Email</p>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="text-gray-600 hover:text-accent transition-colors"
-                    >
-                      {siteConfig.email}
-                    </a>
-                  </div>
-                </div>
+                )}
+
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-accent" aria-hidden="true" />
