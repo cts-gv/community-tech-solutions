@@ -41,7 +41,7 @@ export const siteConfig = {
 
   // ---- FORMSPREE ----
   // Your Formspree form ID (found in your Formspree dashboard URL, e.g. https://formspree.io/f/xyzabcde)
-  formspreeFormId: 'https://formspree.io/f/xqenellp',
+  formspreeFormId: 'xqenellp',
 
   // ---- SEO ----
   seoTitle: 'Community Tech Solutions | Web Design & Tech Services',
