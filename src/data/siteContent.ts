@@ -227,7 +227,7 @@ export const aboutContent = {
     title: 'Our Story',
     paragraphs: [
       'Community Tech Solutions began in a home office with a simple goal: to provide small businesses and residents with quality technology they deserve. My approach is entirely personal-I listen to your challenges first, then build custom solutions that actually fit your workflow.',
-      'Operating from the same dedicated home office today, I serve as a focused technology partner for small businesses in my community.',
+      'Operating from the same dedicated home office today, I serve as a focused technology partner for small businesses and residents in my community.',
       'I am passionate about making technlogy work for people, ensuring you get design and IT support with a direct line to the person doing the work.',
     ],
     // Replace with your own team/office image (recommended: 800x600px or larger)
