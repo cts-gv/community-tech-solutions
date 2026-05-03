@@ -65,7 +65,7 @@ export const homeContent = {
   hero: {
     headline: 'Community Tech Solutions',
     subheadline:
-      'We design stunning websites and deliver smart tech solutions so you can focus on growing your small business.',
+      'Helping small businesses and residents stay connected through smart design and tech.',
     ctaText: 'Get Started',
     ctaLink: '/contact',
     secondaryCtaText: 'Our Services',
