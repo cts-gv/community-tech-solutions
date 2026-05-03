@@ -284,7 +284,7 @@ export const servicesContent = {
   hero: {
     headline: 'Our Services',
     subheadline:
-      'From stunning websites to reliable IT support, we offer everything your business needs to thrive in the digital world.',
+      'From stunning websites to reliable IT support, we offer a little bit of everything your business needs to thrive in the digital world.',
     // Replace with your own image (recommended: 1200x600px or larger)
     backgroundImage:
       'https://images.pexels.com/photos/3183131/pexels-photo-3183131.jpeg?auto=compress&cs=tinysrgb&w=1200',
