@@ -112,7 +112,7 @@ export const homeContent = {
     },
     {
       title: 'IT Solutions',
-      description: 'Reliable tech support and infrastructure management for your small business.',
+      description: 'Reliable tech support and infrastructure management for small businesses and residents alike.',
       icon: 'Settings',
     },
     {
