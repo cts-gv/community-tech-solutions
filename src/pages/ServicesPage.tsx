@@ -55,13 +55,21 @@ export default function ServicesPage() {
                     index % 2 !== 0 ? 'lg:order-1' : ''
                   }`}
                 >
-                  <div className="w-full aspect-[4/3] rounded-xl bg-primary/10 flex items-center justify-center">
-                    <DynamicIcon
-                      name={service.icon}
-                      className="w-20 h-20 text-primary/20"
-                      aria-hidden="true"
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full aspect-[4/3] rounded-xl object-cover"
                     />
-                  </div>
+                  ) : (
+                    <div className="w-full aspect-[4/3] rounded-xl bg-primary/10 flex items-center justify-center">
+                      <DynamicIcon
+                        name={service.icon}
+                        className="w-20 h-20 text-primary/20"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

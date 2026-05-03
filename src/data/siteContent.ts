@@ -301,6 +301,16 @@ export const servicesContent = {
         'Custom branding and UI',
       ],
       icon: 'Layout',
+      // ============================================================
+      // CHANGE THIS IMAGE: Replace the path below with your own photo
+      // for the Custom Website Design service card.
+      // - Use a local path like 'images/your-photo.jpg' (place the
+      //   file in the /images folder)
+      // - Or use a full URL like 'https://example.com/photo.jpg'
+      // - Recommended size: 800x600px or larger
+      // - Set to '' (empty string) to show the default icon instead
+      // ============================================================
+      image: '',
     },
     {
       title: 'Announcement Websites',
@@ -313,6 +323,16 @@ export const servicesContent = {
         'Easy sharing via link or QR code',
       ],
       icon: 'PartyPopper',
+      // ============================================================
+      // CHANGE THIS IMAGE: Replace the path below with your own photo
+      // for the Announcement Websites service card.
+      // - Use a local path like 'images/your-photo.jpg' (place the
+      //   file in the /images folder)
+      // - Or use a full URL like 'https://example.com/photo.jpg'
+      // - Recommended size: 800x600px or larger
+      // - Set to '' (empty string) to show the default icon instead
+      // ============================================================
+      image: '',
     },
     {
       title: 'IT Consulting & Support',
@@ -325,6 +345,16 @@ export const servicesContent = {
         'Emergency troubleshooting',
       ],
       icon: 'Settings',
+      // ============================================================
+      // CHANGE THIS IMAGE: Replace the path below with your own photo
+      // for the IT Consulting & Support service card.
+      // - Use a local path like 'images/your-photo.jpg' (place the
+      //   file in the /images folder)
+      // - Or use a full URL like 'https://example.com/photo.jpg'
+      // - Recommended size: 800x600px or larger
+      // - Set to '' (empty string) to show the default icon instead
+      // ============================================================
+      image: '',
     },
     {
       title: 'Internet & Network Solutions',
@@ -337,6 +367,16 @@ export const servicesContent = {
         'Router & modem setup',
       ],
       icon: 'Wifi',
+      // ============================================================
+      // CHANGE THIS IMAGE: Replace the path below with your own photo
+      // for the Internet & Network Solutions service card.
+      // - Use a local path like 'images/your-photo.jpg' (place the
+      //   file in the /images folder)
+      // - Or use a full URL like 'https://example.com/photo.jpg'
+      // - Recommended size: 800x600px or larger
+      // - Set to '' (empty string) to show the default icon instead
+      // ============================================================
+      image: '',
     },
   ],
   cta: {
