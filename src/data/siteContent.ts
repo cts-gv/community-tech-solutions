@@ -24,7 +24,7 @@
 export const siteConfig = {
   // ---- BUSINESS IDENTITY ----
   businessName: 'Community Tech Solutions',
-  logo: 'images/CommunityTechSolutions-Grandview-Prosser-Sunnyside-Washington-wifi-router-troubleshooting(2).png',
+  logo: 'images/C1.png',
   tagline: 'Tech Solutions With a Local Touch',
   phone: '(509) 416-6444',
   email: 'support@ctechsolution.tech',
