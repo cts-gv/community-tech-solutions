@@ -39,6 +39,10 @@ export const siteConfig = {
     instagram: '#',
   },
 
+  // ---- FORMSPREE ----
+  // Your Formspree form ID (found in your Formspree dashboard URL, e.g. https://formspree.io/f/xyzabcde)
+  formspreeFormId: 'YOUR_FORMSPREE_FORM_ID',
+
   // ---- SEO ----
   seoTitle: 'Community Tech Solutions | Web Design & Tech Services',
   seoDescription:

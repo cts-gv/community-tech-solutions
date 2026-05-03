@@ -2,7 +2,6 @@ import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { contactContent, siteConfig } from '../data/siteContent';
 import PageHero from '../components/PageHero';
-import { supabase } from '../lib/supabase';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -28,21 +27,21 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus('submitting');
 
-    const { error } = await supabase.from('contact_submissions').insert([
-      {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
-      },
-    ]);
+    try {
+      const response = await fetch(`https://formspree.io/f/${siteConfig.formspreeFormId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    if (error) {
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
       setStatus('error');
-    } else {
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     }
   };
 
