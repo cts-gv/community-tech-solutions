@@ -77,7 +77,7 @@ export default function ContactPage() {
                   ) : (
                     <Eye className="w-5 h-5" aria-hidden="true" />
                   )}
-                  {showContact ? 'Hide Phone Number' : 'Show Phone Number'}
+                  {showContact ? 'Hide Phone Number & Email' : 'Show Phone Number & Email'}
                 </button>
 
                 {showContact && (
