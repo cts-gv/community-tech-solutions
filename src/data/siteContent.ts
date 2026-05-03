@@ -176,7 +176,7 @@ export const internetSlowContent = {
     {
       title: 'Too Many Connected Devices',
       description:
-        'Every device on your network shares the same bandwidth. Smart TVs, phones, tablets, and IoT devices all compete for speed. Disconnect unused devices or upgrade your plan.',
+        'Every device on your network shares the same bandwidth. Smart TVs, phones, tablets, and IoT devices all compete for speed. Disconnect unused devices, check your equipment or upgrade your plan.',
       icon: 'Smartphone',
     },
     {
