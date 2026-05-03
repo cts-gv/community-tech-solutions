@@ -16,7 +16,7 @@ export default function Footer() {
               <span>{siteConfig.businessName}</span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
-              {siteConfig.tagline}. Affordable web design and technology solutions for small businesses.
+              {siteConfig.tagline}. Affordable web design and technology solutions for residents and small businesses.
             </p>
             <div className="flex gap-3">
               <a
