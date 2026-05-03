@@ -26,8 +26,8 @@ export const siteConfig = {
   businessName: 'Community Tech Solutions',
   logo: 'images/CommunityTechSolutions-Grandview-Prosser-Sunnyside-Washington-wifi-router-troubleshooting(2).png',
   tagline: 'Tech Solutions With a Local Touch',
-  phone: '(555) 123-4567',
-  email: 'hello@nexatech.com',
+  phone: '(509) 416-6444',
+  email: 'support@ctechsolution.tech',
   address: 'Grandview, WA 98930',
 
   // ---- SOCIAL LINKS ----
