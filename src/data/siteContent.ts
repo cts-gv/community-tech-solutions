@@ -310,7 +310,7 @@ export const servicesContent = {
       // - Recommended size: 800x600px or larger
       // - Set to '' (empty string) to show the default icon instead
       // ============================================================
-      image: '',
+      image: 'images/custom-web-design.png',
     },
     {
       title: 'Announcement Websites',
