@@ -348,7 +348,7 @@ export const servicesContent = {
         'Technology audits',
         'Infrastructure planning',
         'Digital growth support',
-        'Emergency troubleshooting',
+        'Troubleshooting',
       ],
       icon: 'Settings',
       // ============================================================
