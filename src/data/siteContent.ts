@@ -155,9 +155,9 @@ export const homeContent = {
     },
     {
       quote:
-        'I didn`t realize how vulnerable an outdated router could make my home office until Community tech Solutions stepped in.  After my hardware reached its end -of-life, they guided me through the selection of a new high performance router that fits my home perfectly.  Professional, knowledgeable, and saved me hours of researcgh!',
-      author: 'Andrea M.',
-      role: 'Private Residence',
+        'Community Tech Solutions has been an invaluable partner to our small business over the past two years. Jose has supported us in ordering and setting up new computers, troubleshooting a wide range of IT issues, implementing secure external file backups, and guiding our transition to fiber internet services. Jose is always prompt, friendly, and professional, and consistently explains technical issues in a way that’s easy to understand. We truly appreciate his reliable support and highly recommend his services to any business looking for trusted IT expertise.',
+      author: 'Theresa Marmolejo, MPA',
+      role: 'VP Operations/ Senior Evaluator, RGI Corporation',
     },
   ],
 };
