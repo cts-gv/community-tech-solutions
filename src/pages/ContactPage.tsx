@@ -63,7 +63,7 @@ export default function ContactPage() {
               <p className="text-gray-600 leading-relaxed mb-10">
                 Whether you need a new website, IT support, or help with slow internet,
                 we&rsquo;re here for you. Fill out the form and we&rsquo;ll get back to you
-                within 24 hours.
+                within 24 hours. *We utilize automated call screening to filter unsolicited calls. When calling, you may be asked to provide your name before the call is connected. Thank you for helping us keep our lines clear for our community!
               </p>
 
               <div className="space-y-6">
