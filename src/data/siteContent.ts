@@ -24,7 +24,7 @@
 export const siteConfig = {
   // ---- BUSINESS IDENTITY ----
   businessName: 'Community Tech Solutions',
-  logo: 'images/C1.png',
+  logo: 'images/cts.png',
   tagline: 'Tech Solutions With a Local Touch',
   phone: '(509) 416-6444',
   email: 'support@ctechsolution.tech',
