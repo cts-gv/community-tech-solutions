@@ -155,7 +155,7 @@ export const homeContent = {
     },
     {
       quote:
-        'I didn`t realize how vulnerable an outdated router could make my home office until Community tech Solutions stepped in.  After my hardware reached its end -of-life, they guided me through the selection of a new high performance router that fits my home perfectly.  Professional, knowledgeable, and saved me hours of researcgh!',
+        'I didn`t realize how vulnerable an outdated router could make my home office until Community tech Solutions stepped in.  After my hardware reached its end -of-life, they guided me through the selection of a new high performance router that fits my home perfectly.  Professional, knowledgeable, and saved me hours of research!',
       author: 'Andrea M.',
       role: 'Private Residence',
     },
