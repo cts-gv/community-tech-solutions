@@ -16,7 +16,7 @@ export default function Footer() {
               <span>{siteConfig.businessName}</span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
-              {siteConfig.tagline}. Affordable web design and technology solutions for small businesses.
+              {siteConfig.tagline}. Affordable web design and technology solutions for residents and small businesses in Grandview, Sunnyside and Prosser.
             </p>
             <div className="flex gap-3">
               <a
@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            &copy; {currentYear} {siteConfig.businessName}. All rights reserved.
+            &copy; {currentYear} {siteConfig.businessName}|Grandview, WA. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link to="/terms" className="text-white/40 hover:text-white/60 text-sm transition-colors">
