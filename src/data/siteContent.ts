@@ -490,8 +490,8 @@ export const legalPages = {
         body: 'For privacy-related questions, contact us at hr@ctechsolution.tech.',
       },
       {
-        heading: '9. Washington State Supplemental Notice',
-        body: 'For information regarding "Consumer Health Data" (including biometric data like FaceID setup), please see our standalone Consumer Health Data Privacy Policy.',
+        heading: '9. SMS/Text Messaging Communications',
+        body: 'If you provide your phone number through one of our booking or contact tools, you consent to receive transactional text messages related to your specific request — such as a one-time verification code, appointment confirmation, appointment reminder, or service update. We do not send marketing or promotional text messages, and we do not share your phone number or SMS opt-in data with third parties or affiliates for marketing or promotional purposes. Message and data rates may apply, and message frequency varies based on your activity. You may opt out at any time by replying STOP, or reply HELP for assistance.',
       },
     ],
   },
