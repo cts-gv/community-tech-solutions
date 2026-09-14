@@ -101,7 +101,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-primary">Phone</p>
-                        
+                        <a
                           href={`tel:${siteConfig.phone}`}
                           className="text-gray-600 hover:text-accent transition-colors"
                         >
@@ -115,7 +115,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-primary">Email</p>
-                        
+                        <a
                           href={`mailto:${siteConfig.email}`}
                           className="text-gray-600 hover:text-accent transition-colors"
                         >
