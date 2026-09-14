@@ -9,22 +9,38 @@ export default function ContactPage() {
   const { hero, formLabels, serviceOptions } = contactContent;
   const [status, setStatus] = useState<FormStatus>('idle');
   const [showContact, setShowContact] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     service: '',
     message: '',
+    smsConsent: false,
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+      if (checked) setConsentError(false);
+      return;
+    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Only require SMS consent if they actually gave us a phone number.
+    if (formData.phone.trim() && !formData.smsConsent) {
+      setConsentError(true);
+      return;
+    }
+
     setStatus('submitting');
 
     try {
@@ -36,7 +52,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', service: '', message: '', smsConsent: false });
       } else {
         setStatus('error');
       }
@@ -54,10 +70,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Contact Info */}
             <div className="lg:col-span-2">
-              <h2
-                id="contact-form-heading"
-                className="text-3xl font-bold text-primary mb-6"
-              >
+              <h2 id="contact-form-heading" className="text-3xl font-bold text-primary mb-6">
                 Let&rsquo;s Talk
               </h2>
               <p className="text-gray-600 leading-relaxed mb-10">
@@ -88,7 +101,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-primary">Phone</p>
-                        <a
+                        
                           href={`tel:${siteConfig.phone}`}
                           className="text-gray-600 hover:text-accent transition-colors"
                         >
@@ -102,7 +115,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-primary">Email</p>
-                        <a
+                        
                           href={`mailto:${siteConfig.email}`}
                           className="text-gray-600 hover:text-accent transition-colors"
                         >
@@ -127,25 +140,15 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <form
-                onSubmit={handleSubmit}
-                className="bg-gray-50 rounded-2xl p-8 lg:p-10"
-                noValidate
-              >
+              <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-8 lg:p-10" noValidate>
                 {status === 'success' && (
-                  <div
-                    className="mb-6 flex items-center gap-3 bg-green-50 text-green-700 p-4 rounded-xl"
-                    role="alert"
-                  >
+                  <div className="mb-6 flex items-center gap-3 bg-green-50 text-green-700 p-4 rounded-xl" role="alert">
                     <CheckCircle className="w-5 h-5 shrink-0" aria-hidden="true" />
                     <p>Thank you! Your message has been sent. We&rsquo;ll be in touch soon.</p>
                   </div>
                 )}
                 {status === 'error' && (
-                  <div
-                    className="mb-6 flex items-center gap-3 bg-red-50 text-red-700 p-4 rounded-xl"
-                    role="alert"
-                  >
+                  <div className="mb-6 flex items-center gap-3 bg-red-50 text-red-700 p-4 rounded-xl" role="alert">
                     <AlertCircle className="w-5 h-5 shrink-0" aria-hidden="true" />
                     <p>Something went wrong. Please try again or contact us directly.</p>
                   </div>
@@ -184,7 +187,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-3">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-primary mb-2">
                       {formLabels.phone}
@@ -200,10 +203,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="service"
-                      className="block text-sm font-medium text-primary mb-2"
-                    >
+                    <label htmlFor="service" className="block text-sm font-medium text-primary mb-2">
                       {formLabels.service}
                     </label>
                     <select
@@ -222,6 +222,32 @@ export default function ContactPage() {
                     </select>
                   </div>
                 </div>
+
+                {formData.phone.trim() && (
+                  <div className="mb-6">
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="smsConsent"
+                        checked={formData.smsConsent}
+                        onChange={handleChange}
+                        className="mt-1 w-4 h-4 rounded border-gray-300 text-accent focus:ring-accent/20"
+                      />
+                      <span className="text-sm text-gray-600">
+                        I agree to receive text messages from Community Tech Solutions related to my
+                        request, such as a confirmation code or appointment reminder. Msg &amp; data
+                        rates may apply. See our{' '}
+                        <a href="https://ctechsolution.tech/privacy" className="text-accent underline">Privacy Policy</a> and{' '}
+                        <a href="https://ctechsolution.tech/privacy" className="text-accent underline">SMS Terms</a>.
+                      </span>
+                    </label>
+                    {consentError && (
+                      <p className="mt-2 text-sm text-red-600" role="alert">
+                        Please check the box above to consent to text messages, or remove your phone number.
+                      </p>
+                    )}
+                  </div>
+                )}
 
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
