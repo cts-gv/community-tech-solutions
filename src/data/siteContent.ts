@@ -44,11 +44,13 @@ export const siteConfig = {
   formspreeFormId: 'mjgzbqra',
 
   // ---- SEO ----
-  seoTitle: 'Community Tech Solutions | Web Design & Tech Services',
+  seoTitle: 'Tech Support & Web Design | Grandview, Sunnyside, Prosser WA',
   seoDescription:
-    'Professional web design, IT solutions, and technology consulting. We build fast, modern websites and solve your tech problems.',
+    'IT support, Wi-Fi and slow internet fixes, and affordable small business web design in Grandview, Sunnyside & Prosser, WA. CompTIA-certified. Call (509) 416-6444.',
   seoKeywords:
     'web design, tech solutions, network troubleshooting, IT consulting, website development, internet troubleshooting',
+  serviceAreas: ['Grandview', 'Sunnyside', 'Prosser'],
+  state: 'WA',
 };
 
 // ---- NAVIGATION ----
@@ -65,7 +67,7 @@ export const homeContent = {
   hero: {
     headline: 'Community Tech Solutions',
     subheadline:
-      'We design stunning websites and deliver smart tech solutions so you can focus on growing your small business.',
+      'We design stunning websites and deliver smart tech solutions so you can focus on growing your small business in Grandview, Sunnyside and Prosser.',
     ctaText: 'Get Started',
     ctaLink: '/contact',
     secondaryCtaText: 'Our Services',
