@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useRandomShimmer } from '../hooks/useRandomShimmer';
 import { navLinks, siteConfig } from '../data/siteContent';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const contactRef = useRandomShimmer<HTMLAnchorElement>();
+  const mobileContactRef = useRandomShimmer<HTMLAnchorElement>(3500, 8000);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -62,6 +65,7 @@ export default function Navbar() {
             ))}
             <Link
               to="/contact"
+              ref={contactRef}
               className="ml-4 btn-primary text-sm py-2 px-6"
             >
               Contact Us
@@ -105,6 +109,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/contact"
+            ref={mobileContactRef}
             className="block mt-3 btn-primary text-center text-sm py-3"
           >
             Contact Us

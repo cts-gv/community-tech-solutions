@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import { servicesContent } from '../data/siteContent';
+import ServicesBackground from '../components/ServicesBackground';
 import PageHero from '../components/PageHero';
+import Divider from '../components/Divider';
+import Reveal from '../components/Reveal';
 import DynamicIcon from '../components/IconMap';
 
 export default function ServicesPage() {
@@ -12,7 +15,7 @@ export default function ServicesPage() {
       <PageHero
         headline={hero.headline}
         subheadline={hero.subheadline}
-        backgroundImage={hero.backgroundImage}
+        background={<ServicesBackground />}
       />
 
       {/* ===== SERVICES GRID ===== */}
@@ -21,9 +24,7 @@ export default function ServicesPage() {
           <h2 id="all-services-heading" className="sr-only">All Services</h2>
           <div className="space-y-16">
             {services.map((service, index) => (
-              <article
-                key={service.title}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              <Reveal as="article" from={index % 2 ? 'right' : 'left'} key={service.title} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                   index % 2 !== 0 ? 'lg:direction-rtl' : ''
                 }`}
               >
@@ -71,11 +72,13 @@ export default function ServicesPage() {
                     </div>
                   )}
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      <Divider bg="bg-white" color="text-accent" flip />
 
       {/* ===== CTA ===== */}
       <section className="section-padding bg-accent" aria-label="Call to action">

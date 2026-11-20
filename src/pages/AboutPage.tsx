@@ -1,4 +1,5 @@
 import { aboutContent } from '../data/siteContent';
+import AboutBackground from '../components/AboutBackground';
 import PageHero from '../components/PageHero';
 import DynamicIcon from '../components/IconMap';
 
@@ -10,7 +11,7 @@ export default function AboutPage() {
       <PageHero
         headline={hero.headline}
         subheadline={hero.subheadline}
-        backgroundImage={hero.backgroundImage}
+        background={<AboutBackground />}
       />
 
       {/* ===== OUR STORY ===== */}

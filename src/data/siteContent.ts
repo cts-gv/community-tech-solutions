@@ -295,7 +295,7 @@ export const servicesContent = {
       'From stunning websites to reliable IT support, we offer everything your business needs to thrive in the digital world.',
     // Replace with your own image (recommended: 1200x600px or larger)
     backgroundImage:
-      '/images/custom-web-design.png',
+      '/images/custom-web-design.webp',
   },
   services: [
     {
@@ -318,7 +318,7 @@ export const servicesContent = {
       // - Recommended size: 800x600px or larger
       // - Set to '' (empty string) to show the default icon instead
       // ============================================================
-      image: '/images/custom-web-design.png',
+      image: '/images/custom-web-design.webp',
     },
     {
       title: 'Announcement Websites',
@@ -340,7 +340,7 @@ export const servicesContent = {
       // - Recommended size: 800x600px or larger
       // - Set to '' (empty string) to show the default icon instead
       // ============================================================
-      image: '/images/announcement-web-design.png',
+      image: '/images/announcement-web-design.webp',
     },
     {
       title: 'IT Consulting & Support',
@@ -362,7 +362,7 @@ export const servicesContent = {
       // - Recommended size: 800x600px or larger
       // - Set to '' (empty string) to show the default icon instead
       // ============================================================
-      image: '/images/it-consulting-support.png',
+      image: '/images/it-consulting-support.webp',
     },
     {
       title: 'Internet & Network Solutions',
@@ -384,7 +384,7 @@ export const servicesContent = {
       // - Recommended size: 800x600px or larger
       // - Set to '' (empty string) to show the default icon instead
       // ============================================================
-      image: '/images/network-solutions.png',
+      image: '/images/network-solutions.webp',
     },
   ],
   cta: {

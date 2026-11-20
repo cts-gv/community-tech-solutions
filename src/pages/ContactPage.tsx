@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { contactContent, siteConfig } from '../data/siteContent';
+import ContactBackground from '../components/ContactBackground';
 import PageHero from '../components/PageHero';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -63,7 +64,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero headline={hero.headline} subheadline={hero.subheadline} compact />
+      <PageHero headline={hero.headline} subheadline={hero.subheadline} background={<ContactBackground />} compact />
 
       <section className="section-padding bg-white" aria-labelledby="contact-form-heading">
         <div className="container-custom mx-auto">

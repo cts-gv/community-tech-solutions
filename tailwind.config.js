@@ -33,7 +33,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Sora', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       keyframes: {
         'hero-fade': {

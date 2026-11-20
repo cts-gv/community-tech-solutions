@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { internetSlowContent } from '../data/siteContent';
+import InternetBackground from '../components/InternetBackground';
 import PageHero from '../components/PageHero';
+import SlowDiagnostic from '../components/SlowDiagnostic';
 import DynamicIcon from '../components/IconMap';
 
 export default function InternetSlowPage() {
@@ -12,8 +14,10 @@ export default function InternetSlowPage() {
       <PageHero
         headline={hero.headline}
         subheadline={hero.subheadline}
-        backgroundImage={hero.backgroundImage}
+        background={<InternetBackground />}
       />
+
+      <SlowDiagnostic />
 
       {/* ===== COMMON CAUSES ===== */}
       <section className="section-padding bg-white" aria-labelledby="causes-heading">

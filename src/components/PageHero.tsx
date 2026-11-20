@@ -1,7 +1,11 @@
+import type { ReactNode } from 'react';
+import Divider from './Divider';
+
 interface PageHeroProps {
   headline: string;
   subheadline: string;
   backgroundImage?: string;
+  background?: ReactNode;
   compact?: boolean;
 }
 
@@ -9,6 +13,7 @@ export default function PageHero({
   headline,
   subheadline,
   backgroundImage,
+  background,
   compact = false,
 }: PageHeroProps) {
   return (
@@ -18,6 +23,7 @@ export default function PageHero({
       } bg-primary`}
       aria-label="Page hero"
     >
+      {background}
       {backgroundImage && (
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -27,15 +33,13 @@ export default function PageHero({
       )}
       <div
         className={`absolute inset-0 ${
-          backgroundImage ? 'bg-primary/85' : 'bg-primary'
+          backgroundImage ? 'bg-primary/85' : background ? 'bg-transparent' : 'bg-primary'
         }`}
         aria-hidden="true"
       />
+      <Divider overlay color="text-white" />
 
-      {/* Decorative accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" aria-hidden="true" />
-
-      <div className="relative container-custom mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+      <div className="relative container-custom mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-32">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           {headline}
         </h1>

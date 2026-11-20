@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Quote, ExternalLink } from 'lucide-react';
 import { homeContent, siteConfig } from '../data/siteContent';
+import Divider from '../components/Divider';
+import HeroComputer from '../components/HeroComputer';
+import Reveal from '../components/Reveal';
+import NetworkCanvas from '../components/NetworkCanvas';
 import DynamicIcon from '../components/IconMap';
 
 export default function HomePage() {
@@ -9,43 +13,58 @@ export default function HomePage() {
   return (
     <>
       {/* ===== HERO SECTION ===== */}
-      <section className="relative min-h-screen flex items-center bg-primary" aria-label="Hero">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-0 animate-hero-fade"
-          style={{ backgroundImage: `url(${hero.backgroundImage})` }}
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-primary/80" aria-hidden="true" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" aria-hidden="true" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-900 via-primary to-primary-700" aria-label="Hero">
+        <div className="hero-glow" aria-hidden="true" />
+        <NetworkCanvas />
 
-        <div className="relative container-custom mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="max-w-3xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-4 opacity-0 animate-slide-in-right [animation-delay:0.3s]">
-              {siteConfig.tagline}
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 opacity-0 animate-slide-in-left [animation-delay:0.5s]">
-              {hero.headline}
-            </h1>
-            <p className="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-xl opacity-0 animate-slide-in-right [animation-delay:0.7s]">
-              {hero.subheadline}
-            </p>
-            <div className="flex flex-wrap gap-4 opacity-0 animate-hero-fade [animation-delay:0.9s]">
-              <Link to={hero.ctaLink} className="btn-primary">
-                {hero.ctaText}
-                <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-              </Link>
-              <Link to={hero.secondaryCtaLink} className="btn-secondary">
-                {hero.secondaryCtaText}
-              </Link>
+        <div className="relative container-custom mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-40">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-accent font-bold text-2xl sm:text-3xl tracking-tight mb-6 opacity-0 animate-slide-in-right [animation-delay:0.2s]">
+                {siteConfig.tagline}
+              </p>
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-[1.1] mb-6">
+                <span className="hero-line [animation-delay:0.4s]">Fast Wi-Fi.</span>
+                <span className="hero-line [animation-delay:0.65s]">Great websites.</span>
+                <span className="hero-line [animation-delay:0.9s]">Right here in the Valley.</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-white/75 leading-relaxed mb-10 max-w-xl opacity-0 animate-hero-fade [animation-delay:1.2s]">
+                {hero.subheadline}
+              </p>
+              <div className="flex flex-wrap gap-4 opacity-0 animate-hero-fade [animation-delay:1.4s]">
+                <Link to={hero.ctaLink} className="btn-primary">
+                  {hero.ctaText}
+                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+                </Link>
+                <Link to={hero.secondaryCtaLink} className="btn-secondary">
+                  {hero.secondaryCtaText}
+                </Link>
+              </div>
+            </div>
+
+            <div className="opacity-0 animate-hero-fade [animation-delay:1s]">
+              <HeroComputer />
+              <div className="flex flex-wrap justify-center gap-3 mt-6" aria-hidden="true">
+                {siteConfig.serviceAreas.map((town) => (
+                  <div key={town} className="flex items-center gap-2 text-white text-sm font-semibold backdrop-blur-sm bg-white/5 border border-white/15 rounded-full px-4 py-1.5">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping" />
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
+                    </span>
+                    {town}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+        <Divider overlay color="text-white" />
       </section>
 
       {/* ===== CREDENTIALS ===== */}
       <section className="bg-white border-b border-gray-100" aria-labelledby="credentials-heading">
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="text-center mb-10">
+          <Reveal className="text-center mb-10">
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
               Credentials
             </p>
@@ -55,24 +74,26 @@ export default function HomePage() {
             <p className="text-gray-600 mt-3 max-w-xl mx-auto">
               {credentials.description}
             </p>
-          </div>
+          </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {credentials.items.map((item) => (
-              <div key={item.title} className="text-center">
+            {credentials.items.map((item, i) => (
+              <Reveal key={item.title} delay={i * 90} className="text-center">
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-3">
                   <DynamicIcon name={item.icon} className="w-7 h-7 text-accent" aria-hidden="true" />
                 </div>
                 <p className="text-primary font-semibold text-sm leading-snug">{item.title}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      <Divider bg="bg-white" color="text-gray-50" flip />
+
       {/* ===== FEATURED SERVICES ===== */}
       <section className="bg-gray-50 section-padding" aria-labelledby="services-heading">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
               What We Do
             </p>
@@ -82,14 +103,11 @@ export default function HomePage() {
             >
               Solutions That Drive Results
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredServices.map((service) => (
-              <div
-                key={service.title}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 group"
-              >
+            {featuredServices.map((service, i) => (
+              <Reveal key={service.title} delay={i * 100} className="bg-white rounded-2xl p-8 shadow-sm card-lift group">
                 <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
                   <DynamicIcon
                     name={service.icon}
@@ -122,16 +140,18 @@ export default function HomePage() {
                   Learn More
                   <ChevronRight className="w-4 h-4 ml-1" aria-hidden="true" />
                 </Link>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      <Divider bg="bg-gray-50" color="text-primary" />
+
       {/* ===== TESTIMONIALS ===== */}
       <section className="bg-primary section-padding" aria-labelledby="testimonials-heading">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
               Testimonials
             </p>
@@ -141,13 +161,11 @@ export default function HomePage() {
             >
               What Our Clients Say
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t.author}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+            {testimonials.map((t, i) => (
+              <Reveal as="blockquote" key={t.author} delay={i * 120} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
               >
                 <Quote className="w-8 h-8 text-accent/40 mb-4" aria-hidden="true" />
                 <p className="text-white/80 leading-relaxed mb-6 italic">
@@ -157,11 +175,13 @@ export default function HomePage() {
                   <p className="text-white font-semibold">{t.author}</p>
                   <p className="text-white/50 text-sm">{t.role}</p>
                 </footer>
-              </blockquote>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      <Divider bg="bg-primary" color="text-accent" flip />
 
       {/* ===== CTA BANNER ===== */}
       <section className="bg-accent section-padding" aria-label="Call to action">
