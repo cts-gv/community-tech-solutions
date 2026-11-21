@@ -18,7 +18,7 @@ export default function SlowDiagnostic() {
   const pick = sel === null ? null : options[sel];
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 pt-12 md:pt-16" aria-labelledby="diagnostic-heading">
+    <section className="bg-white px-4 sm:px-6 lg:px-8 pt-12 md:pt-16" aria-labelledby="diagnostic-heading">
       <div className="container-custom mx-auto bg-primary rounded-3xl p-6 sm:p-10 md:p-14 shadow-xl">
         <h2 id="diagnostic-heading" className="text-3xl sm:text-4xl font-bold text-white text-center mb-3">
           Find the weak link
